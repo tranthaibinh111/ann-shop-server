@@ -1,0 +1,21 @@
+# Django framework
+django==2.2.1
+pytz==2019.1
+sqlparse==0.3.0
+
+# Configuration
+# https://django-environ.readthedocs.io/en/latest/
+django-environ==0.4.5
+
+# Python Imaging Library
+Pillow==6.0.0
+
+# Python-PostgreSQL Database Adapter
+psycopg2==2.8.2
+
+# Django Rest Framework
+# https://www.django-rest-framework.org/#installation
+djangorestframework==3.9.3
+markdown==3.1              # Markdown support for the browsable API.
+django-filter==2.1.0       # Filtering support
+coreapi==2.3.3

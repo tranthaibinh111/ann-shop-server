@@ -1,0 +1,20 @@
+FROM python:3.7.2
+
+ENV PYTHONUNBUFFERED 1
+
+ADD ./requirements /requirements
+RUN pip install -r /requirements/dev.txt
+
+# Graphviz - Graph Visualization Software
+# https://github.com/greenled/graphviz-python-docker/blob/master/Dockerfile
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends graphviz \
+    && rm -rf /var/lib/apt/lists/*
+
+ADD ./compose/django/start.sh /
+RUN sed -i 's/\r//' start.sh
+RUN chmod +x start.sh
+
+ADD . /app
+RUN chmod +x app/manage.py
+WORKDIR /app

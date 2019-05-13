@@ -1,0 +1,12 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# Pycharm
+.idea/
+
+# Visual code
+.vscode/
+
+# Git
+.git
+.gitignore

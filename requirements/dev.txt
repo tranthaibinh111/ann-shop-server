@@ -1,0 +1,12 @@
+# Local development dependencies go here
+-r base.txt
+
+# Django extension
+# https://django-extensions.readthedocs.io/en/latest/index.html
+django-extensions==2.1.6
+
+# Graphviz - Graph Visualization Software
+# https://github.com/greenled/graphviz-python-docker/blob/master/Dockerfile
+pygraphviz==1.5
+pyparsing==2.4.0
+pydot==1.4.1
