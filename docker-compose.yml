@@ -1,0 +1,35 @@
+# https://docs.docker.com/compose/compose-file/
+version: '3.7'
+
+volumes:
+  postgres_data: {}
+  ipython_data: {}
+
+
+services:
+  postgres:
+    env_file: ./config/.env
+    container_name: ann-shop_postgres
+    image: postgres:11.2
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backups:/backups
+    ports:
+      - 5432:5432
+
+  django:
+    env_file: ./config/.env
+    container_name: ann-shop_django
+    build:
+      context: .
+      dockerfile: ./compose/django/Dockerfile
+    command: /start.sh
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+      - ipython_data:/root/.ipython
+    links:
+      - postgres
+    ports:
+      - 8000:8000
