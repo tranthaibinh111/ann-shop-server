@@ -42,6 +42,8 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
+    # https://django-mptt.readthedocs.io/en/latest/tutorial.html#getting-started
+    'mptt',
     # https://www.django-rest-framework.org/#installation
     'rest_framework',
     # http://www.tomchristie.com/rest-framework-2-docs/api-guide/authentication#tokenauthentication
@@ -56,9 +58,13 @@ if DEBUG:
 
 # Apps specific for this prest_frameworkroject go here.
 LOCAL_APP = [
+    'mvc.apps.MvcConfig',
+    'ann_shop.apps.AnnShopConfig',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APP
+# https://docs.djangoproject.com/en/2.1/topics/auth/customizing/#substituting-a-custom-user-model
+AUTH_USER_MODEL = 'mvc.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -147,6 +153,10 @@ STATIC_ROOT = 'static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media/'
 
+# Setting path for upload
+CUSTOMER_AVATAR_PATH = 'media/customers/avatars'
+CUSTOMER_AVATAR_PATH = 'media/products'
+
 # https://www.django-rest-framework.org/#installation
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -154,6 +164,18 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
+}
+
+# CKEDITOR
+# https://django-ckeditor.readthedocs.io/en/latest/#installation
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor"
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_CONFIGS = {
+    'default': {
+        "type": "Basic",
+    },
 }
 
 if DEBUG:
