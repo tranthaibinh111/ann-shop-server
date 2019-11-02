@@ -8,7 +8,7 @@ sqlparse==0.3.0
 django-environ==0.4.5
 
 # Python Imaging Library
-Pillow==6.0.0
+Pillow==6.2.0
 
 # Python-PostgreSQL Database Adapter
 psycopg2==2.8.2
