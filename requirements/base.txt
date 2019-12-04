@@ -1,5 +1,5 @@
 # Django framework
-django==2.2.1
+django==2.2.8
 pytz==2019.1
 sqlparse==0.3.0
 
